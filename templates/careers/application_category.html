@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            {% if jinstances %}
+                {% for job in jinstances %}
+                    <a href="{% url 'viewapplications' job_id=job.id %}">
+                        <div class="card">
+                            <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="job opening">
+                            <div class="card-body">
+                                <h2 class="card-title">{{job.role}}</h2>
+                                <p class="card-text">{{job.job_description}}</p>
+                            </div>
+                        </div>
+                    </a></br>
+                {% endfor %}
+            {% endif %}
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}
+{% if jinstances %}
+    {% for job in jinstances %}
+        <a href="{% url 'viewapplications' job_id=job.id %}">{{job.role}}</a></br></br>
+    {% endfor %}
+{% endif %}

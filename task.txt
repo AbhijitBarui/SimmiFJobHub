@@ -1,0 +1,61 @@
+make a normal looking website in Django
+Proper authentication(register, login, logout, dashboard)
+DBMS Setup alongwith connected database
+Forms to store data
+Render data from DB in website
+
+Bonus: 
+Include a search function
+Include ways to upload files in forms
+Include bootstrap
+
+Purpose of this project:
+Its a project to manage the simmifoundation.org recruitment handle
+Normal users can register themselves and then login to continue to apply for a post open in the organisation
+Admin users can login with provided credentials and then check details/forms filled by candidates 
+    with filtering and search features
+
+
+Pages Need:
+Home -> contains basic details, dummy data mostly
+About -> contains about details, dummy data mostly
+
+login -> functioning login page 2 fields username and password
+Register -> functioning register page with related feilds
+Profile/dashboard -> showing profile info ========================================================================
+
+Careers -> where current openings will show
+Application -> where user can apply for the selected opening after reading through the data related to opening
+                here the data entered by user will be stored in DB
+
+Admin area -> where admins can chill and have various options like user management and Application management
+Viewapplications -> views submitted applications and can make some changes
+application_details -> view each application
+Users_viewer -> views user details and can make some changes============================================================
+
+
+
+Navbar Options: Home AboutUs Careers (Login Register or Profile Logout) ( or Admin Area)
+Note: Careers->Application, Applications->application_nth is like Listings->Listing
+
+Apps needed:
+Pages -> index, about, admin area               urls views                          admin area will only be for admins
+Accounts -> login,register,logout,dashboard        urls views
+Careers -> careers,application,viewapplications,application_nth  urls views models forms admin   
+                                                           viewapplications,application_nth will be only for admins
+                                
+hierarchy:
+careers:
+    submit job application form:
+
+admin area:
+    submit new job form:(takes me to jobform)
+    view categories:(takes me to page called jobapplications where there are subcategories)
+        view applications:(takes me to a subcategory) uses id to navigate
+            view application:(jobapplication) uses id to navigate
+
+DONE for now
+improvements needed:
+>>>Integration of User model in our application to take values automatically if user is logged in as well as
+    Models linking so that every user can only have one application per job opening
+>>>Admins can change reviewed and accepted boolean fields after viewing the application from webapp

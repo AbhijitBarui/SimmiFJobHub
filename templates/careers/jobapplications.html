@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="text-center mb-3">Job Role: {{jinstance.role}}</h1>
+    {% if ainstances %}
+        {% for app in ainstances %}
+            <a href="{% url 'viewapplication' job_id=jinstance.id app_id=app.id %}">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Application ID:{{app.id}}</h2>
+                        <h5 class="card-title"> Name:{{app.first_name}} {{app.last_name}}</h5>
+                        <p class="card-text">Review status:
+                            {% if app.reviewed == True %}
+                                Reviewed
+                            {% else %}
+                                Not Reviewed
+                            {% endif %}</p>
+                        <p class="card-text">Acceptance status:
+                            {% if app.accepted == True %}
+                                Accepted
+                            {% else %}
+                                Not Accepted
+                            {% endif %}</p>
+                    </div>
+                </div>
+            </a></br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

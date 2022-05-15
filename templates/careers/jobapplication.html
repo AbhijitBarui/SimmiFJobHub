@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">Application ID:  {{ainstance.id}}</h1>
+          <h3>
+            Applicant: {{ainstance.first_name}} {{ainstance.last_name}}</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Listing -->
+  <section id="listing" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-12">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-money-bill-alt"></i> email:
+                  <span class="float-right">{{ainstance.email}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bed"></i> phone:
+                  <span class="float-right">{{ainstance.phone}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  <i class="fas fa-bath"></i> location:
+                  <span class="float-right">{{ainstance.location}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                    <i class="fas fa-bath"></i> Resume:
+                    <span class="float-right">
+                        {% if ainstance.resume %}
+                            Submitted
+                        {% endif %}
+                    </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <!-- Fields -->
+            <div class="row mb-5 fields">
+              <div class="col-md-12">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item text-secondary">
+                    <i class="fas fa-money-bill-alt"></i> Reviewed Status:
+                    <span class="float-right">{% if app.reviewed == True %}
+                        Reviewed
+                    {% else %}
+                        Not Reviewed
+                    {% endif %}</span>
+                  </li>
+                  <li class="list-group-item text-secondary">
+                    <i class="fas fa-money-bill-alt"></i> Acceptance Status:
+                    <span class="float-right">{% if app.acepted == True %}
+                        Accepted
+                    {% else %}
+                        Not Accepted
+                    {% endif %}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+          <!-- Fields -->
+          <div class="row mb-5 fields">
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <a href="{%  url 'reviewed'  job_id=jinstance.id app_id=ainstance.id %}" class="btn btn-light mb-4">Change Review Status</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item text-secondary">
+                  <a href="{%  url 'accepted'  job_id=jinstance.id app_id=ainstance.id %}" class="btn btn-light mb-4">Shortlist this application</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

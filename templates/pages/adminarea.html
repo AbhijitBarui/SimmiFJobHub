@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <a href="{% url 'getjobform' %}">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="job opening">
+                    <div class="card-body">
+                    <h2 class="card-title">Submit A Job Opening</h2>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt amet, illo itaque similique repellat.
+                        content.
+                    </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'viewappcategory' %}">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/realtors/kyle.jpg" alt="Application View">
+                    <div class="card-body">
+                    <h2 class="card-title">View Submitted applications</h2>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt amet, illo itaque similique repellat.
+                        content.
+                    </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}

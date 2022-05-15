@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Showcase -->
+    <section id="showcase">
+        <div class="container text-center">
+            <div class="home-search p-5">
+                <div class="overlay p-5">
+                    <h1 class="display-4 mb-4">
+                        Job Application Portal for  </br>Simmi Foundation
+                    </h1>
+                    <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae quas, asperiores
+                        eveniet vel nostrum magnam
+                        voluptatum tempore! Consectetur, id commodi!</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="listings" class="py-5">
+        <div class="container">
+            <h3 class="text-center mb-3">Latest Job Openings</h3>
+            <div class="row">
+                {% if jobinstances %}
+                    {% for job in jobinstances %}
+                        <!-- Listing 1 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card listing-preview">
+                                <img class="card-img-top" src="assets/img/homes/home-1.jpg" alt="">
+                                <div class="card-body">
+                                    <div class="listing-heading text-center">
+                                        <h4 class="text-primary">{{job.role}}</h4>
+                                        <p>
+                                            <i class="fas fa-map-marker text-secondary"></i> {{job.location}}
+                                        </p>
+                                    </div>
+                                    <hr>
+                                    <div class="row py-2 text-secondary">
+                                        <div class="col-6">
+                                            <i class="fas fa-th-large"></i> Exp: {{job.experience}} Y
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fas fa-car"></i> Openings: {{job.opening_count}}
+                                        </div>
+                                    </div>
+                                    <div class="row py-2 text-secondary">
+                                        <div class="col-12">
+                                            <i class="fas fa-bed"></i> Keyskills:{{job.keyskills}}
+                                        </div>
+                                    </div>
+                                    <div class="row py-2 text-secondary">
+                                        <div class="col-6">
+                                            <i class="fas fa-bed"></i> Employment Type: {{job.employment_type}}
+                                        </div>
+                                        <div class="col-6">
+                                            <i class="fas fa-bed"></i> Education: {{job.education}}
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row text-secondary pb-2">
+                                        <div class="col-12">
+                                            <i class="fas fa-clock"></i>Job Posted: 5 days ago
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <a href="{% url 'getapplicationform' form_id=job.id %}" class="btn btn-primary btn-block">APPLY HERE</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5 bg-secondary text-white">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <i class="fas fa-comment fa-4x mr-4"></i>
+                    <hr>
+                    <h3>Help Us</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae,
+                        provident iste consequatur
+                        hic dignissimos ratione ea quae.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-home fa-4x mr-4"></i>
+                    <hr>
+                    <h3>Get Involved</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae,
+                        provident iste consequatur
+                        hic dignissimos ratione ea quae.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-suitcase fa-4x mr-4"></i>
+                    <hr>
+                    <h3>Step Up</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae,
+                        provident iste consequatur
+                        hic dignissimos ratione ea quae.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
