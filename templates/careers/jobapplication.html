@@ -52,15 +52,17 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item text-secondary">
                     <i class="fas fa-money-bill-alt"></i> Reviewed Status:
-                    <span class="float-right">{% if app.reviewed == True %}
-                        Reviewed
+                    <span class="float-right">
+                    {% if ainstance.reviewed == True %}
+                      Not Reviewed
                     {% else %}
-                        Not Reviewed
+                      Reviewed
                     {% endif %}</span>
                   </li>
                   <li class="list-group-item text-secondary">
                     <i class="fas fa-money-bill-alt"></i> Acceptance Status:
-                    <span class="float-right">{% if app.acepted == True %}
+                    <span class="float-right">
+                    {% if ainstance.accepted == True %}
                         Accepted
                     {% else %}
                         Not Accepted
@@ -83,7 +85,11 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <a href="{%  url 'accepted'  job_id=jinstance.id app_id=ainstance.id %}" class="btn btn-light mb-4">Shortlist this application</a>
+                  {% if ainstance.accepted == False %}
+                    <a href="{%  url 'accepted'  job_id=jinstance.id app_id=ainstance.id %}" class="btn btn-light mb-4">Shortlist this application</a>
+                  {% else %}
+                    <a href="{%  url 'accepted'  job_id=jinstance.id app_id=ainstance.id %}" class="btn btn-light mb-4">Reject this application</a>
+                  {% endif %}
                 </li>
               </ul>
             </div>

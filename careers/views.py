@@ -69,8 +69,20 @@ def viewapplication(request, job_id, app_id):
     }
     return render(request, 'careers/jobapplication.html', context)
 
-def reviewed(request):
-    pass
+def reviewed(request, job_id, app_id):
+    ainstance = get_object_or_404(Application, pk=app_id)
+    if ainstance.reviewed == False:
+        ainstance.reviewed = True
+    else:
+        ainstance.reviewed = False
+    ainstance.save()
+    return redirect('/careers/viewappcategory/'+str(job_id)+'/'+str(app_id))
 
-def accepted(request):
-    pass
+def accepted(request, job_id, app_id):
+    ainstance = get_object_or_404(Application, pk=app_id)
+    if ainstance.accepted == False:
+        ainstance.accepted = True
+    else:
+        ainstance.accepted = False
+    ainstance.save()
+    return redirect('/careers/viewappcategory/'+str(job_id)+'/'+str(app_id))

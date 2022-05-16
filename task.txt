@@ -58,4 +58,3 @@ DONE for now
 improvements needed:
 >>>Integration of User model in our application to take values automatically if user is logged in as well as
     Models linking so that every user can only have one application per job opening
->>>Admins can change reviewed and accepted boolean fields after viewing the application from webapp
