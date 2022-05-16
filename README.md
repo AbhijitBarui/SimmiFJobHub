@@ -15,6 +15,7 @@ By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@
         Additional features include 
         <a>reviewing those applications and shortlisting them from webapp.
         <b>Dashboard/Profile where applicants can check their job application status.
+        <c>Prevent Duplicate submissions from same user
 
 # requirements
         Python programming language installed in the desktop environment
