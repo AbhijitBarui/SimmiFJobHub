@@ -2,6 +2,8 @@
 # Assignment Submission related to the post of Intern @ Simmi FOundation
 By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@gmail.com
 
+![alt text](https://github.com/AbhijitBarui/SimmiFJobHub/static/img/sample.jpg?raw=true)
+
 # Description:
         This project required following features to be implemented:
         Authentication(Register/Login functionality)
