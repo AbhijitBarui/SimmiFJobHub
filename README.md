@@ -10,7 +10,7 @@ By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@
         Rendering Data from Database to Frontend        
         However we were asked to use some Creativity to make the project look professional.
 
-        So I decided to design a Web Application where devs can put up job openings available in
+        So I decided to design a Web Application where admin users can put up job openings available in
         the company and applicants can check for vacancies and apply from the website itself.
         Additional features include 
         <a>reviewing those applications and shortlisting them from webapp.
