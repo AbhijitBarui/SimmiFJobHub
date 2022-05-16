@@ -1,5 +1,5 @@
 # Simmi Foundation Job Hub
-# Assignment Submission related to the post of Intern @ Simmi FOundation
+# Assignment Submission related to the post of Intern @ Simmi Foundation
 By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@gmail.com
 
 ![alt text](https://github.com/AbhijitBarui/SimmiFJobHub/static/img/sample.jpg?raw=true)
