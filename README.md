@@ -7,14 +7,20 @@ By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@
         Authentication(Register/Login functionality)
         Database Integration
         Django Forms Data Submission through Web Application
-        Rendering Data from Database to Frontend
+        Rendering Data from Database to Frontend        
+        However we were asked to use some Creativity to make the project look professional.
 
+        So I decided to design a Web Application where devs can put up job openings available in
+        the company and applicants can check for vacancies and apply from the website itself.
+        Additional features include 
+        <a>reviewing those applications and shortlisting them from webapp.
+        <b>Dashboard/Profile where applicants can check their job application status.
 
 # requirements
         Python programming language installed in the desktop environment
         Terminal
         Source Code Editor(used VSCode for this particular project)
-        PostgreSQL for Database
+        PostgreSQL for Database(No need since Default sql database is set for making process easier)
 
 # how-to-operate:
         Creating and activating a Virtual environment before cloning in the machine is suggested.
@@ -41,4 +47,4 @@ By Abhijit Barui            Ph: +91-8335076174              email: abhijitongit@
         Host it in a cloud service
 
 # Apologies
-        for exposing secret key for not being able to share .env file
+        for exposing secret key not being able to share .env file
