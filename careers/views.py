@@ -38,11 +38,17 @@ def getapplicationform(request, form_id):
 def postapplicationform(request, form_id):
     form = ApplicationForm(request.POST, request.FILES)
     form.instance.job = get_object_or_404(Jobs,pk=form_id)
-    if form.is_valid():
-        form.save()
-        return redirect('dashboard')
-    else:
-        return redirect('careers')
+    if request.user.is_authenticated:
+        form.instance.user_id = request.user.id
+        has_application = Application.objects.all().filter(user_id=form.instance.user_id,job=form.instance.job)
+        if has_application:
+            return redirect('dashboard')
+        else:
+            if form.is_valid():
+                form.save()
+                return redirect('dashboard')
+            else:
+                return redirect('index')
 
 def viewappcategory(request):
     jinstances = Jobs.objects.all()
@@ -82,6 +88,8 @@ def accepted(request, job_id, app_id):
     ainstance = get_object_or_404(Application, pk=app_id)
     if ainstance.accepted == False:
         ainstance.accepted = True
+        if ainstance.reviewed == False:
+            ainstance.reviewed = True
     else:
         ainstance.accepted = False
     ainstance.save()

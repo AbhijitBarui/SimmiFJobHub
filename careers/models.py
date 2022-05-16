@@ -25,6 +25,7 @@ class Application(models.Model):
     resume = models.FileField()
     reviewed = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
+    user_id = models.IntegerField(blank=True,default=0)
 
     def __str__(self) -> str:
         return self.job.role

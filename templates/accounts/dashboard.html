@@ -1,6 +1,55 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Hi {{user}}!!</h1>
-<h3>Profile Details:</h3>
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">{{user.first_name}}'s Dashboard</h1>
+          <p class="lead">Check your Application Status</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section id="dashboard" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Welcome {{user}}</h2>
+          <p>Here are the applications that you have applied for</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Job Role</th>
+                <th scope="col">Acceptance status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% if ainstances %}
+                    {% for ainstance in ainstances %}
+                        <tr>
+                            <td>{{ainstance.id}}</td>
+                            <td>{{ainstance.job}}</td>
+                            <td>
+                                {% if ainstance.reviewed == True %}
+                                    {% if ainstance.accepted == True %}
+                                        Accepted
+                                    {% else %}
+                                        Not Accepted
+                                    {% endif %}
+                                {% else %}
+                                    Pending
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

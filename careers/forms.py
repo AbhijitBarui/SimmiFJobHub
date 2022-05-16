@@ -11,4 +11,4 @@ class JobsForm(forms.ModelForm):
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application
-        exclude = ['job','reviewed','accepted','job_id']
+        exclude = ['job','reviewed','accepted','job_id','user_id']

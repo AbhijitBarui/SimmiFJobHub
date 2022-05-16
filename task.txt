@@ -58,3 +58,14 @@ DONE for now
 improvements needed:
 >>>Integration of User model in our application to take values automatically if user is logged in as well as
     Models linking so that every user can only have one application per job opening
+>>>Profile where candidates can check the application's status(needs the model connection to be made first)
+
+
+to connect user model we have to do this
+introduce a user_id int type field(blank=true) in application form and make it hidden(do not render in form)
+use jinja ifelse to assign it the value of user's id if logged in else assign 0 based on login status
+use it later to check for duplicacy in views.py with 2 filter conditions, same job/opening and same user_id if both true then skip
+
+
+FOR NOW: I am able to stop duplicate submissions
+and dashboard is fully functional

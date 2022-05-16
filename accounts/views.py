@@ -2,6 +2,7 @@ from django.forms import model_to_dict
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
+from careers.models import Application
 
 def register(request):
     if request.method == "POST":
@@ -73,7 +74,10 @@ def logout(request):
 
 def dashboard(request):
     if request.user.is_authenticated:
-        context = model_to_dict(request.user)
+        ainstances = Application.objects.filter(user_id=request.user.id)
+        context = {
+            'ainstances':ainstances,
+        }
     return render(request, 'accounts/dashboard.html', context)
 
 #context of user

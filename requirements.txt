@@ -1,6 +1,10 @@
-django
-djangorestframework
-pillow
-psycopg2-binary
-psycopg2
-python-decouple
+asgiref==3.5.1
+backports.zoneinfo==0.2.1
+Django==4.0.4
+django-widget-tweaks==1.4.12
+djangorestframework==3.13.1
+Pillow==9.1.0
+psycopg2-binary==2.9.3
+python-decouple==3.6
+pytz==2022.1
+sqlparse==0.4.2

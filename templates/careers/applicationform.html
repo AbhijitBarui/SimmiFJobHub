@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block content %}
     {% if jinstance %}
         <section id="showcase-inner" class="py-5 text-white">
@@ -46,46 +47,37 @@
                             <i class="fas fa-bath"></i> Educational Qualifications:
                             <span class="float-right">{{jinstance.education}}</span>
                         </li>
-                        <li class="list-group-item text-secondary">
-                            <i class="fas fa-bath"></i> Resume:
-                            <span class="float-right">
-                                {% if ainstance.resume %}
-                                    Submitted
-                                {% endif %}
-                            </span>
-                        </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12">
+
                     <!-- Fields -->
                     <div class="row mb-5 fields">
                       <div class="col-md-12">
                         <ul class="list-group list-group-flush">
                             <form action="postapplicationform" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <table>
-                                    {{ form.as_table }}
-                                </table>
+                                {% if user.is_authenticated %}
+                                  <input type="hidden" name="user_id" value="{{user.id}}">
+                                {% else %}
+                                  <input type="hidden" name="user_id" value="0">
+                                {% endif %}
+                                {% for field in form.visible_fields %}
+                                  <div class="form-group">
+                                      {{ field.label_tag }}{% render_field field class="form-control" %}
+                                  </div>
+                                {% endfor %}
                                 <button type="submit">Submit</button>
                             </form>
                         </ul>
                       </div>
                     </div>
-                </div>
+
               </div>
             </div>
         </section>
     {% endif %}
 
 {% endblock %}
-role = models.CharField(max_length=50)
-    experience = models.CharField(max_length=10)
-    opening_count = models.IntegerField(default=1)
-    location = models.TextField()
-    expected_salary = models.DecimalField(decimal_places=2,max_digits=10)
-    keyskills = models.TextField()
-    job_description = models.TextField()
-    employment_type = models.CharField(max_length=20)
-    education = models.CharField(max_length=200)
+
